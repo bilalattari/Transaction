@@ -12,11 +12,23 @@ import { Picker } from "native-base";
 import {withNavigation} from 'react-navigation'
 import Drawer from 'react-native-drawer'
 import ControlPanel from './ControlPanel'
+import { Table, Row, Rows } from 'react-native-table-component';
+import { ScrollView } from 'react-native-gesture-handler';
  class Home extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-        selected: "key1"
+        selected: "deposit",
+        tableHead: ['MT LOGIN', 'AMOUNT', 'STATUS', 'CREATED DATE'],
+        tableData: [
+        ['12132', '$100', 'Approved', '4'],
+        ['12233', '$100', 'Approved', 'd'],
+        ['13232', '$1000', 'Approve', '456\n789'],
+        ['12213', '$12000', 'Approved', 'd'],
+        ['12213', '$12000', 'Approved', 'd'],
+        ['12213', '$12000', 'Approved', 'd'],
+        ['12213', '$12000', 'Approved', 'd'],
+      ]
         }
   }
   static navigationOptions = {
@@ -34,11 +46,10 @@ closeControlPanel = () => {
     });
   }
     render() {
-        const drawerStyles = {
-            drawer: { shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3 ,  },
-            main: { paddingLeft: 3 }
-          }
-      const {navigation} = this.props.navigation
+        const {navigation} = this.props.navigation
+        let data = ['1','2','3']
+        const state = this.state;
+
         return (
             <Drawer
             ref={ref => (this._drawer = ref)}
@@ -70,44 +81,13 @@ closeControlPanel = () => {
             <Picker.Item label="INTERNAL TRANSFERS" value="transfer" />
           </Picker>
             </View>
-            <View style = {{flexDirection : 'row' , minHeight : 40 ,  borderTopColor : '#FC4A1A' , borderTopWidth : 0.5}}>
-                <View style = {[styles.amountBox , {width : '25%'}]}>
-                    <Text style = {{fontWeight : '700'}}>MT Login</Text>
-                </View>
-                <View style = {[styles.amountBox , {width : '25%'}]}>
-                    <Text style = {{fontWeight : '700'}}>Amount</Text>
-                </View>
-                <View style = {[styles.amountBox , {width : '22%'}]}>
-                    <Text style = {{fontWeight : '700'}}>Status</Text>
-                </View>
-                <View style = {[styles.amountBox , {width : '28%'}]}>
-                    <Text style = {{fontWeight : '700'}}>Created Date</Text>
-                </View>
-            </View>
-            {
-                ['1','2','3'].map((data , index)=>{
-                    return(
-            <View style = {{flexDirection : 'row' , minHeight : 40 , 
-             borderTopColor : '#FC4A1A' , borderTopWidth : 0.5 ,borderBottomColor  : index === ['1','2','3'].length - 1 ? '#FC4A1A' : null,
-             borderBottomWidth  : index ===['1','2','3'].length - 1 ? 0.5 : null,
-                 }}>
-                <View style = {[styles.amountBox , {width : '25%'}]}>
-                    <Text style = {{fontSize : 13}}>0213910283</Text>
-                </View>
-                <View style = {[styles.amountBox , {width : '25%'}]}>
-                    <Text style = {{fontSize : 13}}>$12000</Text>
-                </View>
-                <View style = {[styles.amountBox , {width : '22%'}]}>
-                    <Text style = {{fontSize : 13}}>Approved</Text>
-                </View>
-                <View style = {[styles.amountBox , {width : '28%' }]}>
-                    <Text style = {{fontSize : 13}}>12/07/2018</Text>
-                </View>
-            </View>
-                    )
-                })
-            }
-                      
+            <ScrollView>
+            <Table borderStyle={{borderWidth: 1, borderColor: '#FC4A1A' }}>
+          <Row data={state.tableHead} style={styles.head} textStyle={styles.text}/>
+          <Rows data={state.tableData} textStyle={styles.text}/>
+        </Table>
+                </ScrollView>
+     
           </View>
       </Drawer>
         );
@@ -118,6 +98,8 @@ closeControlPanel = () => {
       container: {
         flex: 1,
       },
+      head: { height: 40, backgroundColor: '#f1f8ff' , borderColor : '#FC4A1A' },
+  text: { margin: 6 },
       amountBox : {justifyContent : 'center' , padding : 4 ,  borderRightColor : '#FC4A1A' , 
       borderRightWidth : 0.5 , alignItems : 'center'},
       chunkPicker : { borderWidth : 1 , borderRadius : 5 ,marginVertical : 12,
