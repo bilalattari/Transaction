@@ -14,12 +14,13 @@ export default CustomInput = ( props ) =>
     onChangeText = {(text)=> props.textChange(text)}
     errorStyle={{ color: 'red' }}
     leftIcon={
+      props.icon ? 
       <Icon
         name={props.icon}
         size={16}
         type = {'font-awesome'}
         color='#909291'
-      />
+      /> : null
     }
     leftIconContainerStyle = {{padding : 0}}
     {...props}

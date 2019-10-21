@@ -7,7 +7,8 @@ import {
 } from 'react-native';
 import CustomInput from '../Component/Input'
 import CustomButton from '../Component/Button'
-export default class Login extends React.Component {
+import {withNavigation} from 'react-navigation'
+ class Login extends React.Component {
   constructor(props){
     super(props)
   }
@@ -47,3 +48,4 @@ export default class Login extends React.Component {
         flexDirection: 'column',
       },
     })
+    export default withNavigation(Login)

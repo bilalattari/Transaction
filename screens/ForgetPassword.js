@@ -19,12 +19,11 @@ export default class ForgetPassword extends React.Component {
             <View style={styles.container}>
               <View style = {{alignItems : 'center',}}>
               <CustomInput 
-              icon = {'lock'}
               secureTextEntry = {true}textChange = {(text)=> console.log(text)}
               label = {'New Password'} placeholder = {'Enter New Pssword'}/>
               </View>
               <View style = {{marginVertical : 12}}>
-              <CustomButton title = {'Save New Password'} />
+              <CustomButton title = {'Save'} />
                 </View>
           </View>
         );
@@ -35,7 +34,6 @@ export default class ForgetPassword extends React.Component {
       container: {
         flex: 1,
         justifyContent : 'center',
-        alignItems : 'center',
         flexDirection: 'column',
       },
     })
