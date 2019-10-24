@@ -39,9 +39,9 @@ drawerheading = (icon , text , route )=>{
                         {this.drawerheading('play' , 'My Profile' , 'Profile')}
                         {this.drawerheading('play' , 'Transactions' , 'Transactions')}
                         {this.drawerheading('play' , 'Transfer Funds' , 'TransferFunds')}
-                        {this.drawerheading('play' , 'Request Withdrawel' , 'Play')}
+                        {this.drawerheading('play' , 'Request Withdrawel' , 'WithdrawFunds')}
                         {this.drawerheading('play' , 'Upload Documents' , 'Play')}
-                        {this.drawerheading('play' , 'Change Account Password' , 'Play')}
+                        {this.drawerheading('play' , 'Change Account Password' , 'ChangeAccountPassword')}
                         {this.drawerheading('play' , 'Add new TA account' , 'Play')}
                     </View>
            </View>

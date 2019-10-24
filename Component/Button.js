@@ -11,7 +11,6 @@ icon={props.icon ?
       color="white"
     /> : null
   }
-  containerStyle = {{alignSelf : 'center' , width : 140}}
+  containerStyle = {[{alignSelf : 'center' , width : 140} , props.containerStyle]}
   buttonStyle = {{backgroundColor : props.backgroundColor ? props.backgroundColor : '#697689'}}
-  onPress = {()=> props.onPress()}
 />
