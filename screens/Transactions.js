@@ -14,7 +14,7 @@ import Drawer from 'react-native-drawer'
 import ControlPanel from './ControlPanel'
 import { Table, Row, Rows } from 'react-native-table-component';
 import { ScrollView } from 'react-native-gesture-handler';
- class Home extends React.Component {
+ class Transactions extends React.Component {
   constructor(props){
     super(props)
     this.state = {
@@ -85,4 +85,4 @@ import { ScrollView } from 'react-native-gesture-handler';
       buttonsStyle : {flex : 1 , justifyContent : 'center' , minHeight  :40,
       alignItems : 'center' , borderColor : '#FFCFC2' , borderWidth : 0.5},
     })
-    export default withNavigation(Home)
+    export default withNavigation(Transactions)

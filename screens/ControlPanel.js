@@ -42,7 +42,7 @@ drawerheading = (icon , text , route )=>{
                         {this.drawerheading('play' , 'Request Withdrawel' , 'WithdrawFunds')}
                         {this.drawerheading('play' , 'Upload Documents' , 'Play')}
                         {this.drawerheading('play' , 'Change Account Password' , 'ChangeAccountPassword')}
-                        {this.drawerheading('play' , 'Add new TA account' , 'Play')}
+                        {this.drawerheading('play' , 'Add new TA account' , 'AddNewAccount')}
                     </View>
            </View>
         );

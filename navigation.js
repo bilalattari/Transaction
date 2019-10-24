@@ -7,6 +7,7 @@ import Transactions from './screens/Transactions';
 import TransferFunds from './screens/TransferFunds';
 import WithdrawFunds from './screens/WithdrawFunds';
 import ChangeAccountPassword from './screens/ChangePassword';
+import AddNewAccount from './screens/TradingAccount';
 
 const MainNavigator = createStackNavigator({
   Home: {
@@ -29,6 +30,9 @@ const MainNavigator = createStackNavigator({
   },
   WithdrawFunds: {
     screen: WithdrawFunds,
+  },
+  AddNewAccount: {
+    screen: AddNewAccount,
   },
   ChangeAccountPassword: {
     screen: ChangeAccountPassword,
