@@ -4,13 +4,14 @@ import Login from './screens/Login';
 import Home from './screens/Home';
 import Profile from './screens/Profile';
 import Transactions from './screens/Transactions';
+import TransferFunds from './screens/TransferFunds';
 
 const MainNavigator = createStackNavigator({
-  Transactions: {
-    screen: Transactions,
-  },
   Home: {
     screen: Home,
+  },
+  Transactions: {
+    screen: Transactions,
   },
   Profile: {
     screen: Profile,
@@ -21,6 +22,10 @@ const MainNavigator = createStackNavigator({
   Login: {
     screen: Login,
   },
+  TransferFunds: {
+    screen: TransferFunds,
+  },
+  
 });
 
 const Routes = createAppContainer(MainNavigator);

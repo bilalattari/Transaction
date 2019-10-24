@@ -29,13 +29,13 @@ return(
                        <Text style = {{fontSize : 15 , padding : 4}}>{value}</Text>
                     </View> 
                </View>
-)
-}
+        )
+  }
     render() {
       const {navigation} = this.props.navigation
         return (
             <View style={styles.container}>
-              <CustomHeader  title = {'User Name'} />
+              <CustomHeader  title = {'User Name'} openMenu = {()=> this.props.navigation.navigate('Home')}  />
               <ScrollView style = {{marginBottom : 25}}>
               <Image source = {require('../assets/avatar.png')} 
               style = {{height : 140 , width : 140 , resizeMode : 'contain' ,

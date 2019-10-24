@@ -3,11 +3,12 @@ import { Input  ,Icon} from 'react-native-elements'
 
 export default CustomInput = ( props ) => 
   <Input
-    containerStyle={{ width: '95%' , marginTop : 12  }}
-    inputContainerStyle={{ height: 40 }}
+    containerStyle={ [ props.containerStyle ,{ width: '95%' , marginTop : 12  }]}
+    inputContainerStyle={[props.inputContainerStyle ,  { height: 40 }]}
     inputStyle={{ fontSize: 15 }}
     labelStyle={{ fontWeight: '700' }}
     label={props.label}
+    keyboardType = {props.keyboardType  ? props.keyboardType : 'default' }
     placeholder={props.placeholder}
     value = {props.value}
     secureTextEntry = {props.secureTextEntry}

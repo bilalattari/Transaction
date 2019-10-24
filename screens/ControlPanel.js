@@ -2,10 +2,10 @@ import React, { Fragment } from 'react';
 import {
     StyleSheet,
     View,Image,
-    Text,
+    Text,TouchableOpacity
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {withNavigation} from 'react-navigation'
 class ControlPanel extends React.Component {
   constructor(props){
     super(props)
@@ -16,8 +16,11 @@ class ControlPanel extends React.Component {
     header: null,
 };
 drawerheading = (icon , text , route )=>{
+  let navigation = this.props.navigation
     return(
-        <TouchableOpacity style={{flexDirection : 'row'  , alignItems : 'center'  , margin : 8 }}>
+        <TouchableOpacity
+        onPress = {()=> navigation.navigate(route) }
+        style={{flexDirection : 'row'  , alignItems : 'center'  , margin : 8 }}>
             <Icon name = {icon} size = {23} style = {{marginHorizontal : 5}} />
             <Text style = {{fontSize : 18}}> {text} </Text>
             </TouchableOpacity>
@@ -34,8 +37,8 @@ drawerheading = (icon , text , route )=>{
                     <View style={{flex : 3}}>
                         {this.drawerheading('play' , 'Home' , 'Play')}
                         {this.drawerheading('play' , 'My Profile' , 'Profile')}
-                        {this.drawerheading('play' , 'Transactions' , 'Play')}
-                        {this.drawerheading('play' , 'Transfer Funds' , 'Play')}
+                        {this.drawerheading('play' , 'Transactions' , 'Transactions')}
+                        {this.drawerheading('play' , 'Transfer Funds' , 'TransferFunds')}
                         {this.drawerheading('play' , 'Request Withdrawel' , 'Play')}
                         {this.drawerheading('play' , 'Upload Documents' , 'Play')}
                         {this.drawerheading('play' , 'Change Account Password' , 'Play')}
@@ -46,7 +49,7 @@ drawerheading = (icon , text , route )=>{
       }   
     }   
  
-    export default (ControlPanel);
+    export default withNavigation(ControlPanel);
     
     const styles = StyleSheet.create({
       container: {

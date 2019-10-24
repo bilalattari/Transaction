@@ -34,40 +34,19 @@ import { ScrollView } from 'react-native-gesture-handler';
   static navigationOptions = {
     header: null,
 };
-closeControlPanel = () => {
-    this._drawer.close()
-  };
-  openControlPanel = () => {
-    this._drawer.open()
-  };
+
   onValueChange(value) {
     this.setState({
       selected: value
     });
   }
     render() {
-        const {navigation} = this.props.navigation
         let data = ['1','2','3']
         const state = this.state;
-
         return (
-            <Drawer
-            ref={ref => (this._drawer = ref)}
-            type='overlay'
-            content={<ControlPanel navigation={this.props.navigation} />}
-            tapToClose
-            openDrawerOffset={0.2} // 20% gap on the right side of drawer
-            panCloseMask={0.2}
-            closedDrawerOffset={-3}
-            styles={{ 
-            shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3 ,}}
-            tweenHandler={ratio => ({
-              main: { opacity: (2 - ratio) / 2 }
-            })}
-            ref={(ref) => this._drawer = ref}
-             >
+            
             <View style={styles.container}>
-              <CustomHeader openMenu = {()=> this.openControlPanel()} title = {'Transactions'} />
+              <CustomHeader  title = {'Transactions'} openMenu = {()=> this.props.navigation.navigate('Home')} />
               <View  style = {styles.chunkPicker}>
         <Picker
             note
@@ -89,7 +68,6 @@ closeControlPanel = () => {
                 </ScrollView>
      
           </View>
-      </Drawer>
         );
       }   
     }   
@@ -99,7 +77,7 @@ closeControlPanel = () => {
         flex: 1,
       },
       head: { height: 40, backgroundColor: '#f1f8ff' , borderColor : '#FC4A1A' },
-  text: { margin: 6 },
+      text: { margin: 6 },
       amountBox : {justifyContent : 'center' , padding : 4 ,  borderRightColor : '#FC4A1A' , 
       borderRightWidth : 0.5 , alignItems : 'center'},
       chunkPicker : { borderWidth : 1 , borderRadius : 5 ,marginVertical : 12,
