@@ -8,7 +8,7 @@ import {
 import CustomInput from '../Component/Input'
 import CustomButton from '../Component/Button'
 import CustomHeader from '../Component/header'
-import {withNavigation} from 'react-navigation'
+import {withNavigation , NavigationEvents}  from 'react-navigation'
 import Drawer from 'react-native-drawer'
 import ControlPanel from './ControlPanel'
 import { ScrollView } from 'react-native-gesture-handler';
@@ -45,6 +45,7 @@ openControlPanel = () => {
             })}
             ref={(ref) => this._drawer = ref}
              >
+               <NavigationEvents onDidBlur = {()=> this.closeControlPanel()} />
             <View style={styles.container}>
               <CustomHeader  menu = {true} title = {'HOME'} openMenu = {()=> this.openControlPanel()}/>
               <ScrollView style = {{marginBottom : 25}}>
