@@ -35,7 +35,7 @@
         <View style={styles.container}>
             <CustomHeader
             title={'Transfer Funds'}
-            openMenu={() => this.props.navigation.navigate('TransferFunds')}
+            openMenu={() => this.props.navigation.navigate('Home')}
             />
             <View style = {{marginTop : '10%'}}>
             {this.pickerHeading('ACCOUNT FROM')}

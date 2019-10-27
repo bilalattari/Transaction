@@ -22,7 +22,21 @@ return(
                       </View>
                        <Text style = {{fontSize : 16 , color : '#89A1CF' }}>{props.obj.amount} </Text>
                      </View>
-                       
+                      {
+                        props.obj.Note ? 
+                        <View style = {{flexDirection : "row" , paddingLeft  : 12 }}>
+                          <Text style = {{fontSize : 14 , fontWeight : 'bold'}}>Note :</Text>
+                          <Text style = {{fontSize : 14 }}> {props.obj.Note}</Text>
+                          </View>
+                          :
+                          props.obj.toMtLogin ? 
+                          <View style = {{ paddingLeft  : 12 }}>
+                          <Text style = {{fontSize : 12 , fontWeight : 'bold'}}>TO MT LOGIN</Text>
+                          <Text style = {{fontSize : 15 , color : "#000" }}> {props.obj.toMtLogin}</Text>
+                          </View>
+                          :
+                          null
+                      } 
                        <View style = {styles.status}> 
                        <View style = {{flexDirection : 'row' , alignItems : 'center'}}>
                          <Icon type = {'font-awesome'} name = {'circle'} 
@@ -83,6 +97,28 @@ return(
           createdDate : new Date().toLocaleDateString()
         } ,
         ]
+       , transferTable : [{
+          mtLogin : '123456788',
+          toMtLogin : '2345672323',
+          amount : '$1200',
+          status : "Approved",
+          createdDate : new Date().toLocaleDateString()
+        } ,
+        {
+          mtLogin : '123456788',
+          toMtLogin : '2345672323',
+          amount : '$1200',
+          status : "Canceled",
+          createdDate : new Date().toLocaleDateString()
+        } ,
+        {
+          mtLogin : '123456788',
+          toMtLogin : '2345672323',
+          amount : '$1200',
+          status : "Approved",
+          createdDate : new Date().toLocaleDateString()
+        } ,
+        ]
 
       }
   }
@@ -96,7 +132,7 @@ return(
     });
   }
     render() {
-        let {depositTable , withdrawelTable} = this.state
+        let {depositTable , withdrawelTable , transferTable} = this.state
         let style = {backgroundColor : "#FC4A1A"}
         return (
           <View style={styles.container}>
@@ -127,6 +163,10 @@ return(
             activeTabStyle = {style}
             textStyle = {{color : '#fff'}}
             tabStyle = {style} heading="TRANSFERS">
+               <FlatList 
+              data = {transferTable}
+              renderItem = {({item , index})=> <Card index= {index} obj = {item} />}
+              />
             </Tab>
           </Tabs>
         
@@ -140,7 +180,7 @@ return(
       container: {
         flex: 1,
       },
-      cardContainer : {height : 90 , marginHorizontal : 12  ,  marginTop : 12,
+      cardContainer : {minHeight : 85 , marginHorizontal : 12  ,  marginTop : 12,
         backgroundColor  : '#fff' , borderColor : '#FF8F8F' , borderWidth : 0.5},
         number : {flexDirection : 'row' , paddingHorizontal : 12 , padding : 8,
         justifyContent : 'space-between'},
