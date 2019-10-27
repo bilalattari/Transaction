@@ -73,7 +73,6 @@
             textChange={text => console.log(text)}
             placeholder={'Amount'}
             />
-
             <View style={{ marginVertical: 12 }}>
             <CustomButton title={'Proceed'} backgroundColor={'green'} />
             </View>
