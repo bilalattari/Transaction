@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 import { Input  ,Icon} from 'react-native-elements'
+import {themeColor} from '../Constant/index'
 
 export default CustomInput = ( props ) => 
   <Input
-    containerStyle={ [ props.containerStyle ,{ width: '95%' , marginTop : 12  }]}
-    inputContainerStyle={[props.inputContainerStyle ,  { height: 40 }]}
-    inputStyle={{ fontSize: 15 }}
-    labelStyle={{ fontWeight: '700' }}
-    label={props.label}
-    keyboardType = {props.keyboardType  ? props.keyboardType : 'default' }
+    containerStyle={ [ props.containerStyle ,{ width: '100%' ,alignSelf : 'center' , 
+    marginVertical : 6 ,  }]}
+    inputContainerStyle={[props.inputContainerStyle , 
+       {  borderWidth : 1 , borderColor :themeColor , height : 50  , padding : 8 ,}]}
+    inputStyle={{ fontSize: 16 ,   }}
+    keyboardType = {props.keyboardType  ? props.keyboardType : 'default'  }
     placeholder={props.placeholder}
+    placeholderTextColor = {'#53c3f2'}
     value = {props.value}
     secureTextEntry = {props.secureTextEntry}
     onChangeText = {(text)=> props.textChange(text)}

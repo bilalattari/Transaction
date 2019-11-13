@@ -2,12 +2,15 @@ import React, { Fragment } from 'react';
 import {
     StyleSheet,
     View,TouchableOpacity,
-    Text,
-    Image
+    Text,ScrollView
 } from 'react-native';
 import CustomInput from '../Component/Input'
 import CustomButton from '../Component/Button'
+import CustomHeader from '../Component/header'
 import {withNavigation} from 'react-navigation'
+import Logo from '../Component/LogoImage'
+import {themeColor} from '../Constant/index'
+import Slogan from '../Component/Slogan'
  class Login extends React.Component {
   constructor(props){
     super(props)
@@ -18,24 +21,27 @@ import {withNavigation} from 'react-navigation'
     render() {
       const {navigation} = this.props.navigation
         return (
-            <View style={styles.container}>
-              <View style = {{alignItems : 'center',}}>
-              <CustomInput label = {'Email'} icon = {'envelope'}
+            <ScrollView style={styles.container}>
+              <CustomHeader title = {'Login'} />
+              <Logo height={200}/>
+              <Slogan />
+              <CustomInput label = {'Email'} 
+              labelStyle = {{color : themeColor , fontSize: 14, paddingVertical: 2,}}
               placeholder = {'Email Address'} textChange = {(text)=> console.log(text)}/>
-              <CustomInput 
-              icon = {'lock'}
-              secureTextEntry = {true}textChange = {(text)=> console.log(text)}
-              label = {'Password'} placeholder = {'Enter Pssword'}/>
-              </View>
+              <CustomInput label = {'Password'} 
+              secureTextEntry = {true}
+              labelStyle = {{color : themeColor , fontSize: 14, paddingVertical: 2,}}
+              placeholder = {'Password'} textChange = {(text)=> console.log(text)}/>
+              <View style = {{marginVertical : 41}}>
+              <CustomButton title = {'Login'} />
               <TouchableOpacity 
               onPress = {()=> navigation.navigate('ForgetPassword')}
-              style = {{height : 40 , padding : 8 , paddingRight : 16  , alignSelf : 'flex-end'}}>
-              <Text >Forget Password</Text>
+              style = {{height : 40 , padding : 8 , paddingRight : 16  , alignSelf : 'center' ,
+               }}>
+              <Text style = {{color : themeColor}} >Forget Password</Text>
                 </TouchableOpacity>
-              <View style = {{marginVertical : 12}}>
-              <CustomButton title = {'Login'} />
                 </View>
-          </View>
+          </ScrollView>
         );
       }   
     }   
@@ -43,9 +49,7 @@ import {withNavigation} from 'react-navigation'
     const styles = StyleSheet.create({
       container: {
         flex: 1,
-        justifyContent : 'center',
         
-        flexDirection: 'column',
       },
     })
     export default withNavigation(Login)
