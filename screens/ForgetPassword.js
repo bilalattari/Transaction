@@ -1,12 +1,17 @@
 import React, { Fragment } from 'react';
 import {
     StyleSheet,
-    View,
-    Text,
-    Image
+    View,TouchableOpacity,
+    Text,ScrollView
 } from 'react-native';
 import CustomInput from '../Component/Input'
 import CustomButton from '../Component/Button'
+import CustomHeader from '../Component/header'
+import {withNavigation} from 'react-navigation'
+import Logo from '../Component/LogoImage'
+import {themeColor} from '../Constant/index'
+import Slogan from '../Component/Slogan'
+import { Icon } from 'react-native-elements';
 export default class ForgetPassword extends React.Component {
   constructor(props){
     super(props)
@@ -16,16 +21,35 @@ export default class ForgetPassword extends React.Component {
 };
     render() {
         return (
-            <View style={styles.container}>
-              <View style = {{alignItems : 'center',}}>
-              <CustomInput 
-              secureTextEntry = {true}textChange = {(text)=> console.log(text)}
-              label = {'New Password'} placeholder = {'Enter New Pssword'}/>
+          <ScrollView style={styles.container}>
+          <CustomHeader title = {'FORGOT PASSWORD'} />
+          <Logo height={250}/>
+           <Slogan />
+           <View style = {{flexDirection : 'row' }}>
+             <View style = {{width : '83%'}}>
+             <CustomInput label = {'Email'} 
+              labelStyle = {styles.labelStyle}
+              placeholder = {'Email Address'} textChange = {(text)=> console.log(text)}/>
+               </View>
+              <Icon type = {'font-awesome'} name = {'arrow-circle-right'} size = {40}
+               color = {themeColor} containerStyle = {{ alignSelf : 'center',marginTop  : 18, 
+               justifyContent : 'center'  }} />
               </View>
-              <View style = {{marginVertical : 12}}>
-              <CustomButton title = {'Save'} />
+               <CustomInput label = {'Enter Code Sent On Email'} 
+              labelStyle = {styles.labelStyle}
+              placeholder = {'Code'} textChange = {(text)=> console.log(text)}/>
+              <CustomInput label = {'Password'} 
+              secureTextEntry = {true}
+              labelStyle = {styles.labelStyle}
+              placeholder = {'Password'} textChange = {(text)=> console.log(text)}/>
+              <CustomInput label = {'Confirm Password'} 
+              secureTextEntry = {true}
+              labelStyle = {styles.labelStyle}
+              placeholder = {'Confirm Password'} textChange = {(text)=> console.log(text)}/>
+                          <View style = {{marginVertical : 12}}>
+              <CustomButton title = {'LOGIN'} />
                 </View>
-          </View>
+          </ScrollView>
         );
       }   
     }   
@@ -33,7 +57,6 @@ export default class ForgetPassword extends React.Component {
     const styles = StyleSheet.create({
       container: {
         flex: 1,
-        justifyContent : 'center',
-        flexDirection: 'column',
       },
+      labelStyle : {color : themeColor , fontSize: 14, paddingVertical: 2,}
     })

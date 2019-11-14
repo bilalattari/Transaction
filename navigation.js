@@ -13,14 +13,20 @@ import Profile from './screens/Profile';
 import Transactions from './screens/Transactions';
 import LandingScreen from './screens/Landing'
 import IntroScreen from './screens/Intro'
-
 import SignUp from './screens/SignupScreen'
 import TransferFunds from './screens/TransferFunds';
 import WithdrawFunds from './screens/WithdrawFunds';
 import ChangeAccountPassword from './screens/ChangePassword';
 import AddNewAccount from './screens/TradingAccount';
 import VerifyAccount from './screens/VerifyAccount';
+import {Icon} from 'react-native-elements'
 
+import {View} from 'react-native'
+let TabBarComponent = (props)=> 
+<View style={{backgroundColor : 'blue' , flex : 1 , justifyContent : 'center' , alignItems : 'center'}}>
+<Icon  type = {'font-awesome'} name = {props.name} color = {'#fff'} size = {30}/>
+  </View>
+ 
 const AuthStack = createStackNavigator({
   Landing: {
     screen: Transactions,
@@ -50,13 +56,13 @@ const AuthStack = createStackNavigator({
 
 const FeedStack = createStackNavigator({
   Feed: {
-    screen: Profile,
+    screen: Home,
     navigationOptions: {
       headerTitle: "Feed"
     }
   },
   Details: {
-    screen: Profile,
+    screen: Home,
     navigationOptions: {
       headerTitle: "Details"
     }
@@ -97,19 +103,31 @@ const MainTabs = createBottomTabNavigator({
   Feed: {
     screen: FeedStack,
     navigationOptions: {
-      tabBarLabel: "Feed"
+      tabBarButtonComponent: ()=> <TabBarComponent name = {'play'} />
     }
   },
   Search: {
     screen: SearchStack,
     navigationOptions: {
-      tabBarLabel: "Search"
+      tabBarButtonComponent: ()=> <TabBarComponent name = {'play'} />
     }
   },
   Discover: {
     screen: DiscoverStack,
     navigationOptions: {
-      tabBarLabel: "Discover"
+      tabBarButtonComponent: ()=> <TabBarComponent name = {'play'} />
+    }
+  },
+  Discover: {
+    screen: DiscoverStack,
+    navigationOptions: {
+      tabBarButtonComponent: ()=> <TabBarComponent name = {'play'} />
+    }
+  },
+  Discover: {
+    screen: DiscoverStack,
+    navigationOptions: {
+      tabBarButtonComponent: ()=> <TabBarComponent name = {'play'} />
     }
   }
 });

@@ -19,11 +19,11 @@ import Slogan from '../Component/Slogan'
     header: null,
 };
     render() {
-      const {navigation} = this.props.navigation
+      const {navigation} = this.props
         return (
             <ScrollView style={styles.container}>
               <CustomHeader title = {'Login'} />
-              <Logo height={200}/>
+              <Logo height={250}/>
               <Slogan />
               <CustomInput label = {'Email'} 
               labelStyle = {{color : themeColor , fontSize: 14, paddingVertical: 2,}}
@@ -33,9 +33,10 @@ import Slogan from '../Component/Slogan'
               labelStyle = {{color : themeColor , fontSize: 14, paddingVertical: 2,}}
               placeholder = {'Password'} textChange = {(text)=> console.log(text)}/>
               <View style = {{marginVertical : 41}}>
-              <CustomButton title = {'Login'} />
+              <CustomButton title = {'Login'} 
+              onPress = {()=> navigation.navigate('App')}/>
               <TouchableOpacity 
-              onPress = {()=> navigation.navigate('ForgetPassword')}
+              onPress = {()=> navigation.navigate('ForgotPassword')}
               style = {{height : 40 , padding : 8 , paddingRight : 16  , alignSelf : 'center' ,
                }}>
               <Text style = {{color : themeColor}} >Forget Password</Text>
@@ -49,7 +50,6 @@ import Slogan from '../Component/Slogan'
     const styles = StyleSheet.create({
       container: {
         flex: 1,
-        
       },
     })
     export default withNavigation(Login)
