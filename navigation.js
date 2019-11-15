@@ -19,13 +19,18 @@ import WithdrawFunds from './screens/WithdrawFunds';
 import ChangeAccountPassword from './screens/ChangePassword';
 import AddNewAccount from './screens/TradingAccount';
 import VerifyAccount from './screens/VerifyAccount';
+import VideoScreen from './screens/VideoScreen';
+import AllOrders from './screens/AllOrders';
+import RepostClassified from './screens/ReportClassified';
+import ProductScreen from './screens/ProductScreen';
 import {Icon} from 'react-native-elements'
-
-import {View} from 'react-native'
+import {TouchableHighlight , TouchableOpacity} from 'react-native'
 let TabBarComponent = (props)=> 
-<View style={{backgroundColor : 'blue' , flex : 1 , justifyContent : 'center' , alignItems : 'center'}}>
+<TouchableHighlight 
+onPress = {()=> console.log(props , 'propsprops') }
+style={{backgroundColor : 'blue' , flex : 1 , justifyContent : 'center' , alignItems : 'center'}}>
 <Icon  type = {'font-awesome'} name = {props.name} color = {'#fff'} size = {30}/>
-  </View>
+  </TouchableHighlight>
  
 const AuthStack = createStackNavigator({
   Landing: {
@@ -69,9 +74,9 @@ const FeedStack = createStackNavigator({
   }
 });
 
-const SearchStack = createStackNavigator({
-  Search: {
-    screen: Profile,
+const OrderStack = createStackNavigator({
+  Order: {
+    screen: AllOrders,
     navigationOptions: {
       headerTitle: "Search"
     }
@@ -98,36 +103,65 @@ const DiscoverStack = createStackNavigator({
     }
   }
 });
+const VideoStack = createStackNavigator({
+  VideoScreen: {
+    screen: VideoScreen,
+    navigationOptions: {
+      headerTitle: "Discover"
+    }
+  },
+  Details: {
+    screen: Profile,
+    navigationOptions: {
+      headerTitle: "Details"
+    }
+  }
+});
+const ProductStack = createStackNavigator({
+  ProductScreen: {
+    screen: ProductScreen,
+    navigationOptions: {
+      headerTitle: "Discover"
+    }
+  },
+  RepostScreen: {
+    screen: RepostClassified,
+    navigationOptions: {
+      headerTitle: "Details"
+    }
+  }
+});
 
 const MainTabs = createBottomTabNavigator({
   Feed: {
     screen: FeedStack,
     navigationOptions: {
-      tabBarButtonComponent: ()=> <TabBarComponent name = {'play'} />
+     tabBarOnPress :(props)=> console.log(props),
+    tabBarButtonComponent: (props)=> <TabBarComponent {...props} style={{ borderTopColor: '#605F60' }} name = {'youtube'} />
     }
   },
-  Search: {
-    screen: SearchStack,
+  Order: {
+    screen: OrderStack,
     navigationOptions: {
-      tabBarButtonComponent: ()=> <TabBarComponent name = {'play'} />
-    }
-  },
-  Discover: {
-    screen: DiscoverStack,
-    navigationOptions: {
-      tabBarButtonComponent: ()=> <TabBarComponent name = {'play'} />
+    tabBarButtonComponent: (props)=> <TabBarComponent {...props} style={{ borderTopColor: '#605F60' }} name = {'play'} />
     }
   },
   Discover: {
     screen: DiscoverStack,
     navigationOptions: {
-      tabBarButtonComponent: ()=> <TabBarComponent name = {'play'} />
+    tabBarButtonComponent: (props)=> <TabBarComponent {...props} style={{ borderTopColor: '#605F60' }} name = {'file'} />
     }
   },
-  Discover: {
-    screen: DiscoverStack,
+  Video: {
+    screen: VideoStack,
     navigationOptions: {
-      tabBarButtonComponent: ()=> <TabBarComponent name = {'play'} />
+    tabBarButtonComponent: (props)=> <TabBarComponent {...props} style={{ borderTopColor: '#605F60' }} name = {'home'} />
+    }
+  },
+  Product: {
+    screen: ProductStack,
+    navigationOptions: {
+    tabBarButtonComponent: (props)=> <TabBarComponent {...props} style={{ borderTopColor: '#605F60' }} name = {'user'} />
     }
   }
 });

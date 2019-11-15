@@ -12,6 +12,17 @@ import {withNavigation , NavigationEvents}  from 'react-navigation'
 import Drawer from 'react-native-drawer'
 import ControlPanel from './ControlPanel'
 import { ScrollView } from 'react-native-gesture-handler';
+import { Icon } from 'react-native-elements';
+import { themeColor } from '../Constant';
+
+
+let HomePageTitle = (props)=> 
+        <TouchableOpacity 
+        {...props}
+        style  = {{alignSelf : 'center' ,flexDirection : 'row' , width : '70%' , height : 30 , alignItems : 'center'  , marginVertical : 3}}>
+                  <Icon color = {themeColor} type = {props.type} name = {props.name} containerStyle = {{width : '20%'}}/>
+                  <Text style = {{color :themeColor   , fontSize : 20 }}> {props.title} </Text>
+                </TouchableOpacity>
  class Transactions extends React.Component {
   constructor(props){
     super(props)
@@ -25,18 +36,24 @@ closeControlPanel = () => {
 openControlPanel = () => {
   this._drawer.open()
 };
-
+navigate = (route)=> this.props.navigation.navigate(route)
     render() {
       const {navigation} = this.props.navigation
 
         return (
           <View>
-               <NavigationEvents onDidBlur = {()=> this.closeControlPanel()} />
-            <View style={styles.container}>
               <CustomHeader  home = {true}  title = {'HOME'} />
-              <ScrollView style = {{marginBottom : 25}}>
-              </ScrollView>
-          </View>
+              <View style = {{alignSelf : 'center' , marginVertical : 6}}>
+              <Image source = {require('../assets/avatar.png')} 
+               style = {{height : 120 , width : 120 , resizeMode : 'contain' ,  borderRadius : 12 }}/>
+               <Text style = {{textAlign : 'center' , fontSize : 18 , marginVertical : 6    }}>User name</Text>
+                </View>
+                <HomePageTitle onPress = {()=> this.navigate("Video")} type = {'material'} name = {'play-circle-outline'}title  = {'Managae Videos'} />
+                <HomePageTitle onPress = {()=> this.navigate("ProductScreen")} type = {'font-awesome'} name = {'bath'}title  = {'Managae Products'} />
+                <HomePageTitle onPress = {()=> this.navigate("RepostScreen")} type = {'font-awesome'} name = {'file'}title  = {'Managae Classified'} />
+                <HomePageTitle onPress = {()=> this.navigate("Order")} type = {'font-awesome'} name = {'truck'}title  = {'Orders'} />
+                <HomePageTitle onPress = {()=> this.navigate("Video")} type = {'font-awesome'} name = {'bell'}title  = {'Notofications'} />
+                <HomePageTitle onPress = {()=> this.navigate("Video")} type = {'font-awesome'} name = {'file'}title  = {'Terms and Conditions'} />
             </View>
         );
       }   

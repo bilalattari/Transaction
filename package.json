@@ -20,6 +20,7 @@
     "react-native-model": "^1.0.5",
     "react-native-table-component": "^1.2.1",
     "react-native-vector-icons": "^6.6.0",
+    "react-native-video": "^5.0.2",
     "react-navigation": "^3.6.1"
   },
   "devDependencies": {
