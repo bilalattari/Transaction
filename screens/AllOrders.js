@@ -25,15 +25,26 @@ class AllOrders extends React.Component {
     return (
       <ScrollView stickyHeaderIndices={[0]}>
         <CustomHeader home title={'ALL ORDERS'} />
-            <View style = {{flexDirection  : "row" , height : 40 ,  justifyContent : "space-between" , 
-            marginHorizontal : "3%" , alignItems : "center" }}> 
-            <View style  = {{flexDirection: 'row' , alignItems : "center"}} >
+             <View style = {{marginHorizontal : 12}}>
+            <View style = {{flexDirection  : "row" , height : 50 , alignItems : "center"  , justifyContent : "space-between"}}> 
             <Image source = {require('../assets/product.png')} 
-            style = {{height : 40 , width:  50 , borderRadius : 5 , }} />
+            style = {{height : 48 , width:  55 , borderRadius : 5 , }} />
+            <View style = {{height : 45 , width : "65%" , borderWidth :1 , borderColor : themeColor ,
+             borderRadius : 3 , justifyContent : "center"  }}>
             <Text style = {{paddingLeft : 8 , fontSize : 18 , fontWeight  : 'bold' }}>Product Title</Text>
             </View>
-            <Text >56</Text>
-             </View>
+            <View style = {{height : 45 , width : "15%" , borderWidth :1 , borderColor : themeColor ,
+            alignItems : "center" , justifyContent : 'center',
+            borderRadius : 3 , justifyContent : "center"  }}>
+            <Text style = {{ fontSize : 14 }}>10</Text>
+            </View>
+            </View>
+            <View style = {{height : 120 , width : "95%" , borderWidth :1 ,
+             borderColor : themeColor ,padding : 12,alignSelf : "center",
+            borderRadius : 3   }}>
+            <Text style = {{ fontSize : 14 }}>sadjhsalkdhsajlkd dhkaslhd kdlhas k dkaslhdlkas kdas ld saklhdask</Text>
+            </View>
+            </View>
       </ScrollView>
     )
   }
