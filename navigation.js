@@ -11,6 +11,8 @@ import ForgetPassword from './screens/ForgetPassword'
 import Login from './screens/Login';
 import Home from './screens/Home';
 import Profile from './screens/Profile';
+import Favourites from './screens/Favourites'
+
 import Transactions from './screens/Transactions';
 import LandingScreen from './screens/Landing'
 import IntroScreen from './screens/Intro'
@@ -125,7 +127,13 @@ const ProfileStack = createStackNavigator({
     navigationOptions: {
       headerTitle: "Profile"
     }
-  }
+  },
+  Favourites : {
+    screen: Favourites,
+    navigationOptions: {
+      headerTitle: "Profile"
+    }
+  }, 
 });
 
 const MainTabs = createBottomTabNavigator({

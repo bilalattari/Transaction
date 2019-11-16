@@ -42,7 +42,7 @@ navigate = (route)=> this.props.navigation.navigate(route)
 
         return (
           <View>
-              <CustomHeader  home = {true}  title = {'HOME'} />
+              <CustomHeader  home = {true}  title = {'HOME'} navigation = {this.props.navigation} />
               <View style = {{alignSelf : 'center' , marginVertical : 6}}>
                 <TouchableOpacity onPress = {()=> navigation.navigate("Profile")}>
               <Image source = {require('../assets/avatar.png')} 
