@@ -4,7 +4,7 @@ import {
   View,
   TouchableOpacity,
   Text,
-  Image,
+  FlatList,
   ScrollView
 } from 'react-native'
 import CustomInput from '../Component/Input'
@@ -12,7 +12,10 @@ import CustomButton from '../Component/Button'
 import CustomHeader from '../Component/header'
 import { withNavigation, NavigationEvents } from 'react-navigation'
 import { themeColor } from '../Constant'
+import ProductDescription from '../Component/ProductDescription'
 import Tags from '../Component/Tag'
+
+const url  =  'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRI2GaDkRQ5FV83CxoXIu0tN2oVNIN8ANTLdnb4j00c-zYOVyBD'
 class AllOrders extends React.Component {
   constructor (props) {
     super(props)
@@ -25,26 +28,23 @@ class AllOrders extends React.Component {
     return (
       <ScrollView stickyHeaderIndices={[0]}>
         <CustomHeader home title={'ALL ORDERS'} />
-             <View style = {{marginHorizontal : 12}}>
-            <View style = {{flexDirection  : "row" , height : 50 , alignItems : "center"  , justifyContent : "space-between"}}> 
-            <Image source = {require('../assets/product.png')} 
-            style = {{height : 48 , width:  55 , borderRadius : 5 , }} />
-            <View style = {{height : 45 , width : "65%" , borderWidth :1 , borderColor : themeColor ,
-             borderRadius : 3 , justifyContent : "center"  }}>
-            <Text style = {{paddingLeft : 8 , fontSize : 18 , fontWeight  : 'bold' }}>Product Title</Text>
-            </View>
-            <View style = {{height : 45 , width : "15%" , borderWidth :1 , borderColor : themeColor ,
-            alignItems : "center" , justifyContent : 'center',
-            borderRadius : 3 , justifyContent : "center"  }}>
-            <Text style = {{ fontSize : 14 }}>10</Text>
-            </View>
-            </View>
-            <View style = {{height : 120 , width : "95%" , borderWidth :1 ,
-             borderColor : themeColor ,padding : 12,alignSelf : "center",
-            borderRadius : 3   }}>
-            <Text style = {{ fontSize : 14 }}>sadjhsalkdhsajlkd dhkaslhd kdlhas k dkaslhdlkas kdas ld saklhdask</Text>
-            </View>
-            </View>
+          <Text style = {styles.header}>Sold</Text>
+          <FlatList 
+          data = {['1' , '2']}
+          keyExtractor = {(item)=> item}
+          renderItem = {({item , index})=> 
+          <ProductDescription title  = {"Medicine"} url = {url} quantity = {"10"} 
+           description = {"The description is about The description is about The description is about The description is about" } />}
+          />
+           
+          <Text style = {styles.header}>Bought</Text>
+          <FlatList 
+          data = {['1' , '2']}
+          keyExtractor = {(item)=> item}
+          renderItem = {({item , index})=> 
+          <ProductDescription title  = {"Medicine"} url = {url} quantity = {"10"} 
+           description = {"The description is about The description is about The description is about The description is about" } />}
+          />
       </ScrollView>
     )
   }
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: themeColor
   },
-  labelStyle :{ color: themeColor, fontSize: 14, paddingVertical: 2 }
+  labelStyle :{ color: themeColor, fontSize: 14, paddingVertical: 2 },
+  header : {color : themeColor , padding : 12 , fontWeight: "800" ,fontSize : 20 }
 })
 export default withNavigation(AllOrders)

@@ -38,14 +38,16 @@ openControlPanel = () => {
 };
 navigate = (route)=> this.props.navigation.navigate(route)
     render() {
-      const {navigation} = this.props.navigation
+      const {navigation} = this.props
 
         return (
           <View>
               <CustomHeader  home = {true}  title = {'HOME'} />
               <View style = {{alignSelf : 'center' , marginVertical : 6}}>
+                <TouchableOpacity onPress = {()=> navigation.navigate("Profile")}>
               <Image source = {require('../assets/avatar.png')} 
                style = {{height : 120 , width : 120 , resizeMode : 'contain' ,  borderRadius : 12 }}/>
+                  </TouchableOpacity>
                <Text style = {{textAlign : 'center' , fontSize : 18 , marginVertical : 6    }}>User name</Text>
                 </View>
                 <HomePageTitle onPress = {()=> this.navigate("Video")} type = {'material'} name = {'play-circle-outline'}title  = {'Managae Videos'} />

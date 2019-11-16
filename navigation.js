@@ -4,7 +4,8 @@ import {
   createBottomTabNavigator,
   createDrawerNavigator,
   createStackNavigator,
-  createSwitchNavigator
+  createSwitchNavigator,
+  BottomTabBar
 } from "react-navigation";
 import ForgetPassword from './screens/ForgetPassword'
 import Login from './screens/Login';
@@ -24,6 +25,7 @@ import AllOrders from './screens/AllOrders';
 import RepostClassified from './screens/ReportClassified';
 import ProductScreen from './screens/ProductScreen';
 import {Icon} from 'react-native-elements'
+
 import {TouchableHighlight , TouchableOpacity} from 'react-native'
 let TabBarComponent = (props)=> 
 <TouchableHighlight 
@@ -117,17 +119,11 @@ const VideoStack = createStackNavigator({
     }
   }
 });
-const ProductStack = createStackNavigator({
-  ProductScreen: {
-    screen: ProductScreen,
+const ProfileStack = createStackNavigator({
+  Profile: {
+    screen: Profile,
     navigationOptions: {
-      headerTitle: "Discover"
-    }
-  },
-  RepostScreen: {
-    screen: RepostClassified,
-    navigationOptions: {
-      headerTitle: "Details"
+      headerTitle: "Profile"
     }
   }
 });
@@ -158,8 +154,8 @@ const MainTabs = createBottomTabNavigator({
     tabBarButtonComponent: (props)=> <TabBarComponent {...props} style={{ borderTopColor: '#605F60' }} name = {'home'} />
     }
   },
-  Product: {
-    screen: ProductStack,
+  Profile: {
+    screen: ProfileStack,
     navigationOptions: {
     tabBarButtonComponent: (props)=> <TabBarComponent {...props} style={{ borderTopColor: '#605F60' }} name = {'user'} />
     }
