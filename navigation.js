@@ -12,7 +12,7 @@ import Login from './screens/Login';
 import Home from './screens/Home';
 import Profile from './screens/Profile';
 import Favourites from './screens/Favourites'
-
+import Messages from './screens/Messages'
 import Transactions from './screens/Transactions';
 import LandingScreen from './screens/Landing'
 import IntroScreen from './screens/Intro'
@@ -132,6 +132,12 @@ const ProfileStack = createStackNavigator({
     screen: Favourites,
     navigationOptions: {
       headerTitle: "Profile"
+    }
+  },
+  Messages : {
+    screen: Messages,
+    navigationOptions: {
+      headerTitle: "Messages"
     }
   }, 
 });
