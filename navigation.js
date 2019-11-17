@@ -16,6 +16,7 @@ import Messages from './screens/Messages'
 import Transactions from './screens/Transactions';
 import LandingScreen from './screens/Landing'
 import Chat from './screens/MessageChat'
+import Cart from './screens/Cart'
 import IntroScreen from './screens/Intro'
 import SignUp from './screens/SignupScreen'
 import TransferFunds from './screens/TransferFunds';
@@ -25,6 +26,8 @@ import AddNewAccount from './screens/TradingAccount';
 import VerifyAccount from './screens/VerifyAccount';
 import VideoScreen from './screens/VideoScreen';
 import AllOrders from './screens/AllOrders';
+import Buy from './screens/Buy';
+import Notifications from './screens/Notifications';
 import RepostClassified from './screens/ReportClassified';
 import ProductScreen from './screens/ProductScreen';
 import {Icon} from 'react-native-elements'
@@ -68,13 +71,13 @@ const FeedStack = createStackNavigator({
   Feed: {
     screen: Home,
     navigationOptions: {
-      headerTitle: "Feed"
+      headerTitle: "Homje"
     }
   },
-  Details: {
-    screen: Home,
+  Notifications: {
+    screen: Notifications,
     navigationOptions: {
-      headerTitle: "Details"
+      headerTitle: "Notifications"
     }
   }
 });
@@ -147,7 +150,18 @@ const ProfileStack = createStackNavigator({
       headerTitle: "Chat"
     }
   },
-  
+  Cart : {
+    screen: Cart,
+    navigationOptions: {
+      headerTitle: "Cart"
+    }
+  },
+  Buy : {
+    screen: Buy,
+    navigationOptions: {
+      headerTitle: "Buy"
+    }
+  },
 });
 
 const MainTabs = createBottomTabNavigator({

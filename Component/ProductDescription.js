@@ -17,8 +17,14 @@ style = {styles.imageStyle} />
 <View style = {styles.descriptionView}>
 <Text style = {{ fontSize : 14 }}>{props.description}</Text>
 </View>
+{
+    props.cart ?
+    <Text style = {{color : themeColor , fontSize : 16  , 
+    marginRight : 4 , textAlign : "right" , marginVertical : 6}}>$50.00</Text> 
+    :
 <CustomButton title = {new Date().toLocaleDateString()} 
 containerStyle = {{alignSelf: 'flex-end',marginTop: 8}} />
+}
 </View>
 
 

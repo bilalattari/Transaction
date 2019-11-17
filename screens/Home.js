@@ -17,8 +17,7 @@ import { themeColor } from '../Constant';
 
 
 let HomePageTitle = (props)=> 
-        <TouchableOpacity 
-        {...props}
+        <TouchableOpacity  {...props}
         style  = {{alignSelf : 'center' ,flexDirection : 'row' , width : '70%' , height : 30 , alignItems : 'center'  , marginVertical : 3}}>
                   <Icon color = {themeColor} type = {props.type} name = {props.name} containerStyle = {{width : '20%'}}/>
                   <Text style = {{color :themeColor   , fontSize : 20 }}> {props.title} </Text>
@@ -54,7 +53,7 @@ navigate = (route)=> this.props.navigation.navigate(route)
                 <HomePageTitle onPress = {()=> this.navigate("ProductScreen")} type = {'font-awesome'} name = {'bath'}title  = {'Managae Products'} />
                 <HomePageTitle onPress = {()=> this.navigate("RepostScreen")} type = {'font-awesome'} name = {'file'}title  = {'Managae Classified'} />
                 <HomePageTitle onPress = {()=> this.navigate("Order")} type = {'font-awesome'} name = {'truck'}title  = {'Orders'} />
-                <HomePageTitle onPress = {()=> this.navigate("Video")} type = {'font-awesome'} name = {'bell'}title  = {'Notofications'} />
+                <HomePageTitle onPress = {()=> this.navigate("Notifications")} type = {'font-awesome'} name = {'bell'}title  = {'Notofications'} />
                 <HomePageTitle onPress = {()=> this.navigate("Video")} type = {'font-awesome'} name = {'file'}title  = {'Terms and Conditions'} />
             </View>
         );
