@@ -15,6 +15,7 @@ import Favourites from './screens/Favourites'
 import Messages from './screens/Messages'
 import Transactions from './screens/Transactions';
 import LandingScreen from './screens/Landing'
+import Chat from './screens/MessageChat'
 import IntroScreen from './screens/Intro'
 import SignUp from './screens/SignupScreen'
 import TransferFunds from './screens/TransferFunds';
@@ -140,6 +141,13 @@ const ProfileStack = createStackNavigator({
       headerTitle: "Messages"
     }
   }, 
+  Chat : {
+    screen: Chat,
+    navigationOptions: {
+      headerTitle: "Chat"
+    }
+  },
+  
 });
 
 const MainTabs = createBottomTabNavigator({

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import {
     StyleSheet,
     View,TouchableOpacity,
-    Text,FlatList,
+    Text,FlatList,ScrollView,
     Image
 } from 'react-native';
 import CustomInput from '../Component/Input'
@@ -24,31 +24,29 @@ import DocumentPicker from 'react-native-document-picker';
     header: null,
 };
 
+messageList = ( item )=> <TouchableOpacity
+onPress = {()=> this.props.navigation.navigate("Chat")}
+style = {styles.messageContainer}>
+<Image source = {require('../assets/avatar.png')} 
+style = {styles.msgImage} />
+<View style = {{flex : 1 }}>
+<View style = {styles.msgName}> 
+<Text style = {styles.name}>User Name</Text>
+<Text style = {{ paddingRight : 5 , color : 'grey'}}>5h</Text>
+</View>
+<Text style ={{paddingLeft : 5}}>dashkhdskja dashkhdskjadashkhdskjadashkhdskja dashkhdskja</Text>
+</View>
+</TouchableOpacity>
+
+
 render() {
       const {navigation} = this.props.navigation
         return (
           <View>
               <CustomHeader  home = {true}  title = {'Messages'} />
-              
-
                    <FlatList
-                   data = {['1' , '2' , '3','4','5']}
-                   renderItem  ={({data , index})=>
-                   <View style = {{minHeight : 100 , flexDirection : 'row' , alignItems : "center", 
-               borderBottomColor : themeColor , borderBottomWidth : 0.5}}>
-                   <Image source = {require('../assets/avatar.png')} 
-                   style = {{height : 55 , width : 55 , borderRadius : 25 , marginHorizontal : 10}} />
-                   <View style = {{flex : 1 }}>
-                   <View style = {{flexDirection  : "row" , justifyContent : 'space-between' ,
-                    marginHorizontal : 5 , height : 35 , alignItems : "center" }}> 
-                   <Text style = {{fontWeight : 'bold' , fontSize : 18 }}>User Name</Text>
-                   <Text style = {{ paddingRight : 5 , color : 'grey'}}>5h</Text>
-                   </View>
-                   <Text style ={{paddingLeft : 5}}>dashkhdskja dashkhdskjadashkhdskjadashkhdskja dashkhdskja  dashkhdskja  dashkhdskja  dashkhdskja
-                   </Text>
-                   </View>
-              </View>    
-              }
+                   data = {['1' , '2' , '3','4','5' , '6']}
+                   renderItem  ={({data , index})=> this.messageList(data)}
                    />
             </View>
         );
@@ -59,5 +57,12 @@ render() {
       container: {
         flex: 1,
       },
+      messageContainer : {minHeight : 100 , flexDirection : 'row' , alignItems : "center", 
+      borderBottomColor : themeColor , borderBottomWidth : 0.5},
+      msgImage : {height : 55 , width : 55 , borderRadius : 25 , marginHorizontal : 10},
+      msgName : {flexDirection  : "row" , justifyContent : 'space-between' ,
+      marginHorizontal : 5 , height : 35 , alignItems : "center" },
+      name : {fontWeight : 'bold' , fontSize : 18 },
+
     })
     export default withNavigation(Messages)
