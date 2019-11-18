@@ -22,7 +22,7 @@ class Conditions extends React.Component {
     header: null
   }
 
-  render () {
+  render () {                   
     return (
       <View style={{ flex: 1 }}>
         <CustomHeader home title={'TERMS & CONDITIONS'} />
@@ -32,7 +32,7 @@ class Conditions extends React.Component {
         sdasdasdsadasdsa sdasdasdsadasdsa </Text>
             </ScrollView>
 
-        <View style = {{marginVertical : 10 , justifyContent : "flex-end"}}>
+        <View style = {{marginVertical : 1 , justifyContent : "flex-end"}}>
               <CustomButton title  = {'ACCEPT'} containerStyle = {{width : '86%'}} />
               </View>
       </View>

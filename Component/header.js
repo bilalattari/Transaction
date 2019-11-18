@@ -5,10 +5,10 @@ import { themeColor } from '../Constant/index'
 import Logo from '../Component/LogoImage'
 export default (CustomHeader = props => (
   <View>
-    <StatusBar backgroundColor={themeColor} translucent />
+    <StatusBar backgroundColor={'skyblue'} translucent />
     <Header
       barStyle='light-content' // or directly
-      containerStyle={{ backgroundColor: themeColor }}
+      containerStyle={{ backgroundColor: 'skyblue' }}
       leftComponent={
         props.home ? (
           <Logo height={70} />
@@ -25,6 +25,22 @@ export default (CustomHeader = props => (
           <View
             style={{ flexDirection: 'row', justifyContent: 'space-between' }}
           >
+            {
+              props.add ? 
+              <TouchableOpacity
+              onPress={() => props.onClickAdd()}
+            >
+              <Icon
+                type={'font-awesome'}
+                name={'plus-circle'}
+                color={themeColor}
+                size={20}
+                containerStyle={{ paddingHorizontal: 6 }}
+              />
+            </TouchableOpacity>
+            :
+            null
+            }
             <TouchableOpacity
               onPress={() => props.navigation.navigate('Favourites')}
             >
@@ -33,7 +49,7 @@ export default (CustomHeader = props => (
                 name={'heart'}
                 color={'#fff'}
                 size={16}
-                containerStyle={{ paddingHorizontal: 8 }}
+                containerStyle={{ paddingHorizontal: 6 }}
               />
             </TouchableOpacity>
             <TouchableOpacity>
@@ -42,7 +58,7 @@ export default (CustomHeader = props => (
                 name={'envelope'}
                 color={'#fff'}
                 size={16}
-                containerStyle={{ paddingHorizontal: 8 }}
+                containerStyle={{ paddingHorizontal: 6 }}
                 onPress={() => props.navigation.navigate('Messages')}
               />
             </TouchableOpacity>
@@ -53,7 +69,7 @@ export default (CustomHeader = props => (
                 onPress={() => props.navigation.navigate('Cart')}
                 color={'#fff'}
                 size={16}
-                containerStyle={{ paddingHorizontal: 8 }}
+                containerStyle={{ paddingHorizontal: 6 }}
               />
             </TouchableOpacity>
           </View>

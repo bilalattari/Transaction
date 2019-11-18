@@ -25,6 +25,9 @@ import ChangeAccountPassword from './screens/ChangePassword';
 import AddNewAccount from './screens/TradingAccount';
 import VerifyAccount from './screens/VerifyAccount';
 import VideoScreen from './screens/VideoScreen';
+import Videos from './screens/Videos';
+import AddVideos from './screens/AddVidedo';
+
 import Conditions from './screens/TermsCondition';
 import AllOrders from './screens/AllOrders';
 import Buy from './screens/Buy';
@@ -113,18 +116,25 @@ const DiscoverStack = createStackNavigator({
   }
 });
 const VideoStack = createStackNavigator({
-  VideoScreen: {
+  Videos: {
+    screen: Videos,
+    navigationOptions: {
+      headerTitle: "Videos"
+    }
+  },
+  ManageVideoScreen: {
     screen: VideoScreen,
     navigationOptions: {
       headerTitle: "Discover"
     }
   },
-  Details: {
-    screen: Profile,
+  AddVideos: {
+    screen: AddVideos,
     navigationOptions: {
-      headerTitle: "Details"
+      headerTitle: "AddVideos"
     }
-  }
+  },
+  
 });
 const ProfileStack = createStackNavigator({
   Profile: {
@@ -175,32 +185,37 @@ const MainTabs = createBottomTabNavigator({
   Feed: {
     screen: FeedStack,
     navigationOptions: {
-     tabBarOnPress :(props)=> console.log(props),
-    tabBarButtonComponent: (props)=> <TabBarComponent {...props} style={{ borderTopColor: '#605F60' }} name = {'youtube'} />
+      tabBarLabel: "Feed"
+    //  tabBarOnPress :(props)=> console.log(props),
+    // tabBarButtonComponent: (props)=> <TabBarComponent {...props} style={{ borderTopColor: '#605F60' }} name = {'youtube'} />
     }
   },
   Order: {
     screen: OrderStack,
     navigationOptions: {
-    tabBarButtonComponent: (props)=> <TabBarComponent {...props} style={{ borderTopColor: '#605F60' }} name = {'play'} />
+      tabBarLabel: "Order"
+    // tabBarButtonComponent: (props)=> <TabBarComponent {...props} style={{ borderTopColor: '#605F60' }} name = {'play'} />
     }
   },
   Discover: {
     screen: DiscoverStack,
     navigationOptions: {
-    tabBarButtonComponent: (props)=> <TabBarComponent {...props} style={{ borderTopColor: '#605F60' }} name = {'file'} />
+      tabBarLabel: "Discover"
+    // tabBarButtonComponent: (props)=> <TabBarComponent {...props} style={{ borderTopColor: '#605F60' }} name = {'file'} />
     }
   },
   Video: {
     screen: VideoStack,
     navigationOptions: {
-    tabBarButtonComponent: (props)=> <TabBarComponent {...props} style={{ borderTopColor: '#605F60' }} name = {'home'} />
+      tabBarLabel: "Video"
+    // tabBarButtonComponent: (props)=> <TabBarComponent {...props} style={{ borderTopColor: '#605F60' }} name = {'home'} />
     }
   },
   Profile: {
     screen: ProfileStack,
     navigationOptions: {
-    tabBarButtonComponent: (props)=> <TabBarComponent {...props} style={{ borderTopColor: '#605F60' }} name = {'user'} />
+      tabBarLabel: "Profile"
+    // tabBarButtonComponent: (props)=> <TabBarComponent {...props} style={{ borderTopColor: '#605F60' }} name = {'user'} />
     }
   }
 });
