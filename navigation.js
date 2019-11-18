@@ -25,6 +25,7 @@ import ChangeAccountPassword from './screens/ChangePassword';
 import AddNewAccount from './screens/TradingAccount';
 import VerifyAccount from './screens/VerifyAccount';
 import VideoScreen from './screens/VideoScreen';
+import Conditions from './screens/TermsCondition';
 import AllOrders from './screens/AllOrders';
 import Buy from './screens/Buy';
 import Notifications from './screens/Notifications';
@@ -160,6 +161,12 @@ const ProfileStack = createStackNavigator({
     screen: Buy,
     navigationOptions: {
       headerTitle: "Buy"
+    }
+  },
+  Conditions : {
+    screen: Conditions,
+    navigationOptions: {
+      headerTitle: "Conditions"
     }
   },
 });
