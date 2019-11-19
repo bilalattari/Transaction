@@ -1,2 +1,2 @@
 import React, { Fragment } from 'react';
-export const themeColor  = '#2AABE1'
+export const themeColor  = '#14ADED'

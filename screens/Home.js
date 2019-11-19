@@ -49,9 +49,9 @@ navigate = (route)=> this.props.navigation.navigate(route)
                   </TouchableOpacity>
                <Text style = {{textAlign : 'center' , fontSize : 18 , marginVertical : 6    }}>User name</Text>
                 </View>
-                <HomePageTitle onPress = {()=> this.navigate("Video")} type = {'material'} name = {'play-circle-outline'}title  = {'Managae Videos'} />
-                <HomePageTitle onPress = {()=> this.navigate("ProductScreen")} type = {'font-awesome'} name = {'bath'}title  = {'Managae Products'} />
-                <HomePageTitle onPress = {()=> this.navigate("RepostScreen")} type = {'font-awesome'} name = {'file'}title  = {'Managae Classified'} />
+                <HomePageTitle onPress = {()=> this.navigate("ManageVideoScreen")} type = {'material'} name = {'play-circle-outline'}title  = {'Managae Videos'} />
+                <HomePageTitle onPress = {()=> this.navigate("ManageProductScreen")} type = {'font-awesome'} name = {'bath'}title  = {'Managae Products'} />
+                <HomePageTitle onPress = {()=> this.navigate("RepostClassified")} type = {'font-awesome'} name = {'file'}title  = {'Managae Classified'} />
                 <HomePageTitle onPress = {()=> this.navigate("Order")} type = {'font-awesome'} name = {'truck'}title  = {'Orders'} />
                 <HomePageTitle onPress = {()=> this.navigate("Notifications")} type = {'font-awesome'} name = {'bell'}title  = {'Notofications'} />
                 <HomePageTitle onPress = {()=> this.navigate("Conditions")} type = {'font-awesome'} name = {'file'}title  = {'Terms and Conditions'} />

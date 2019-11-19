@@ -18,7 +18,7 @@ export default (CustomHeader = props => (
       }
       centerComponent={{
         text: props.title,
-        style: { color: '#fff', fontSize: 18 }
+        style: { color: themeColor, fontSize: 15  , fontWeight : 'bold'}
       }}
       rightComponent={
         props.home ? (
