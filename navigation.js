@@ -190,12 +190,12 @@ const ProfileStack = createStackNavigator({
 });
 
 const MainTabs = createBottomTabNavigator({
-  Home: {
-    screen: ClassifiedStack,
+  Video: {
+    screen: VideoStack,
     navigationOptions: {
       tabBarIcon : <FIcon  name = {'youtube-play'} size = {25} color = {'#fff'}/>,
     },
-
+    
     
   },
   Order: {
@@ -210,13 +210,13 @@ const MainTabs = createBottomTabNavigator({
     navigationOptions: {
       tabBarIcon : <MIcon   name = {'file-document-box-multiple-outline'} size = {25}  color = {'#fff'}/> 
     },
-
+    
   },
-  Video: {
-    screen: VideoStack,
-    navigationOptions: {
-      tabBarIcon :<MIcon   name = {'home'} size = {25}  color = {'#fff'}/> 
-    },
+      Home: {
+        screen: ClassifiedStack,
+        navigationOptions: {
+          tabBarIcon :<MIcon   name = {'home'} size = {25}  color = {'#fff'}/> 
+        },
 
   },
   Profile: {
@@ -225,11 +225,13 @@ const MainTabs = createBottomTabNavigator({
       tabBarIcon :<HIcon   name = {'user'} size = {25}  color = {'#fff'}/> 
     },
   }
-}, {tabBarOptions  : {
+}, {
+  initialRouteName  : 'Home',
+  tabBarOptions  : {
   showLabel : false,
   activeBackgroundColor  : 'blue',
   inactiveBackgroundColor  : 'blue',
-  keyboardHidesTabBar  : true
+  keyboardHidesTabBar  : true,
 }});
 
 const SettingsStack = createStackNavigator({
