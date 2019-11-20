@@ -49,7 +49,7 @@ class AddItem extends React.Component {
     console.log()                   
     return (
       <View style={{ flex: 1 }}>
-        <CustomHeader home title={'UPLOAD'} />
+        <CustomHeader home title={ this.state.slogan === 'Create Classified Adds' ?  'CREATE CLASSIFIED ADDS' :  'UPLOAD'} />
         <ScrollView>
           <Text style = {styles.videoSlogan}> {this.state.slogan} </Text>
           <TouchableOpacity onPress = {this._openPicker} style = {styles.videoContainer}>
@@ -61,7 +61,13 @@ class AddItem extends React.Component {
               <Tags tags = {['12' , '121323' , '122' , '1231312312' , '122' , '1231312312', '122' , '1231312312']} />
               <View style={styles.buttonsView}>
              <CustomButton title={'Cancel'} onPress = {()=>this.props.navigation.navigate('Home')} />
-             <CustomButton title={'Post'} />
+             <CustomButton 
+             onPress = {()=>{
+              this.state.slogan === 'Create Classified Adds' ? 
+              this.props.navigation.navigate('AdSucces') : 
+              null
+             }}
+             title={ this.state.slogan === 'Create Classified Adds' ?  'NEXT' :  'Post'} />
         </View>
         </ScrollView>
       </View>

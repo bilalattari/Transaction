@@ -4,8 +4,8 @@ import {themeColor} from '../Constant/index'
 
 export default CustomInput = ( props ) => 
   <Input
-    containerStyle={ [ props.containerStyle ,{ width: '100%' ,alignSelf : 'center' , 
-    marginVertical : 6 ,  }]}
+    containerStyle={ [ { width: '100%' ,alignSelf : 'center' , 
+    marginVertical : 6 ,  }  ,props.containerStyle ]}
     inputContainerStyle={[ {  borderWidth : 1 , borderColor :themeColor , height : 50  , padding : 8 ,} ,props.inputContainerStyle]}
     inputStyle={{ fontSize: 16 ,   }}
     keyboardType = {props.keyboardType  ? props.keyboardType : 'default'  }

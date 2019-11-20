@@ -51,7 +51,7 @@ navigate = (route)=> this.props.navigation.navigate(route)
                 </View>
                 <HomePageTitle onPress = {()=> this.navigate("ManageVideoScreen")} type = {'material'} name = {'play-circle-outline'}title  = {'Managae Videos'} />
                 <HomePageTitle onPress = {()=> this.navigate("ManageProductScreen")} type = {'font-awesome'} name = {'bath'}title  = {'Managae Products'} />
-                <HomePageTitle onPress = {()=> this.navigate("RepostClassified")} type = {'font-awesome'} name = {'file'}title  = {'Managae Classified'} />
+                <HomePageTitle onPress = {()=> this.navigate("Classifieds")} type = {'font-awesome'} name = {'file'}title  = {'Managae Classified'} />
                 <HomePageTitle onPress = {()=> this.navigate("Order")} type = {'font-awesome'} name = {'truck'}title  = {'Orders'} />
                 <HomePageTitle onPress = {()=> this.navigate("Notifications")} type = {'font-awesome'} name = {'bell'}title  = {'Notofications'} />
                 <HomePageTitle onPress = {()=> this.navigate("Conditions")} type = {'font-awesome'} name = {'file'}title  = {'Terms and Conditions'} />

@@ -27,6 +27,9 @@ import AllOrders from './screens/AllOrders';
 import Buy from './screens/Buy';
 import Notifications from './screens/Notifications';
 import RepostClassified from './screens/ReportClassified';
+import Classifieds from './screens/Classifieds';
+import ClassifiedsItems from './screens/ClassifiedsItems';
+import AdSucces from './screens/AdSuccess';
 import ProductScreen from './screens/ProductScreen';
 import {Icon} from 'react-native-elements'
 import {TouchableHighlight , TouchableOpacity} from 'react-native'
@@ -80,6 +83,25 @@ const ClassifiedStack = createStackNavigator({
       headerTitle: "Repost Classified"
     }
   },
+  Classifieds: {
+    screen: Classifieds,
+    navigationOptions: {
+      headerTitle: "Classified"
+    }
+  },
+  ClassifiedsItems: {
+    screen: ClassifiedsItems,
+    navigationOptions: {
+      headerTitle: "Classifieds Items"
+    }
+  },
+  AdSucces: {
+    screen: AdSucces,
+    navigationOptions: {
+      headerTitle: "AdSucces"
+    }
+  },
+  
 });
 
 const OrderStack = createStackNavigator({
@@ -268,15 +290,15 @@ const AppModalStack = createStackNavigator(
 );
 
 const App = createSwitchNavigator({
-  App: {
-    screen: AppModalStack
-  },
   Loading: {
     screen: LandingScreen
   },
   Auth: {
     screen: AuthStack
   },
+              App: {
+                screen: AppModalStack
+              },
 });
 
 const Routes = createAppContainer(App);
